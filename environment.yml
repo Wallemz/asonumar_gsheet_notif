@@ -1,0 +1,10 @@
+name: asonumar_gsheet
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - pip
+  - pip:
+    - gspread
+    - oauth2client
+    - gspread-dataframe
