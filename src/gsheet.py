@@ -4,6 +4,7 @@ logger = logging.getLogger(__name__)
 import gspread
 from gspread_dataframe import get_as_dataframe
 from oauth2client.service_account import ServiceAccountCredentials
+from typing import List, Dict, Any
 
 class GoogleSheet:
 
@@ -17,6 +18,7 @@ class GoogleSheet:
 
             # Create client
             self.client = gspread.authorize(creds)
+            self.sheet = None
 
             logger.info("Access to Google Sheet successful!")
 
@@ -43,17 +45,19 @@ class GoogleSheet:
             logger.error(e)
             return False
 
-    def change_worksheet(self, name_of_worksheet):
+    def change_worksheet(self, name_of_worksheet) -> bool:
         """
             Changes the current working sheet.
         """
         try:
-            self.sheet = self.sheet.worksheet(name_of_worksheet)
+            self.worksheet = self.sheet.worksheet(name_of_worksheet)
             logger.info(f"Changed worksheet to {name_of_worksheet}.")
+            return True
         except Exception as e:
             logger.error(e)
+            return False
 
-    def all_records(self, df=False):
+    def all_records(self, df=False) -> List[Dict[str, Any]]:
         """
             Returns all the records of the workingsheet.
         """
