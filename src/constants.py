@@ -1,6 +1,6 @@
 months = {
-    "dic": 12, "ene": 1, "feb": 2,
+    "dic": 0, "ene": 1, "feb": 2,
     "mar": 3, "abr": 4, "may": 5,
     "jun": 6, "jul": 7, "ago": 8,
-    "sep": 9, "oct": 10, "nov": 1
+    "sep": 9, "oct": 10, "nov": 11
 }

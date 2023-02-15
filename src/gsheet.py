@@ -83,13 +83,23 @@ class GoogleSheet:
         except Exception as e:
             logger.error(e)
 
-    def update(self, row, column, value):
+    def update_cell_coord(self, row: str, column: str, value: str):
         """
             Updates the indicated cell with the input value.
         """
         try:
             self.sheet.update_cell(row, column, value)
             logger.info(f"Cell {row}, {column} updated.")
+        except Exception as e:
+            logger.error(e)
+    
+    def update_cell(self, cell: str, value: str):
+        """
+            Updates the indicated cell with the input value.
+        """
+        try:
+            self.sheet.update_acell(cell, value)
+            logger.info(f"Cell {cell} updated.")
         except Exception as e:
             logger.error(e)
 

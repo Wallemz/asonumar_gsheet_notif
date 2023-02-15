@@ -16,3 +16,4 @@ from src.asonumar_handler import AsonumarHandler
 if __name__ == "__main__":
     logger.info("Asonumar Gsheet notifier Iniciado!")
     AsonumarHandler().handle()
+    logger.info("FINISHED!")
